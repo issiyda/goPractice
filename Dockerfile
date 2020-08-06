@@ -1,8 +1,8 @@
-FROM golang:latest
+FROM golang:1.13.1-alpine
 
-RUN mkdir /go/src/work
+ENV GO111MODULE=on
 
-WORKDIR /go/src/work
-
-ADD . /go/src/work
+RUN apk update && \
+    apk add emacs curl git && \
+    go get github.com/pilu/fresh
 
